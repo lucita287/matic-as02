@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	   
+  
+    <body>
+        <ui:composition template="/WEB-INF/facelets/templates/main.xhtml">
+              <ui:define name="pnlContenido">       
+              
+    
+    <center>
+	
+							<table width="741" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+								<tbody>
+								<tr>
+									<td width="1%"><img src="#{request.getContextPath()}/resources/images/spacer.png" width="10" height="10" border="0" alt=""/></td>
+									<td width="1%"><img src="#{request.getContextPath()}/resources/images/spacer.png" width="1" height="10" border="0" alt=""/></td>
+									<td width="97%"><img src="#{request.getContextPath()}/resources/images/spacer.png" width="1" height="10" border="0" alt=""/></td>
+									<td width="1%"><img src="#{request.getContextPath()}/resources/images/spacer.png" width="10" height="10" border="0" alt=""/></td>
+								</tr>
+								<tr>
+									<td><img src="#{request.getContextPath()}/resources/images/spacer.png" width="10" height="1" border="0" alt=""/></td>
+									<td><img src="#{request.getContextPath()}/resources/images/spacer.png" width="10" height="1" border="0" alt=""/></td>
+									<td class="txt_welcome" valign="top" nowrap="">Pagos Servicios</td>
+									<td align="right" nowrap=""><span class="txt_normal" style="float:left;font-size:9px;display:none;">Rev. #3073</span></td>
+								</tr></tbody>
+							</table>
+							
+	
+    <img src="#{request.getContextPath()}/resources/images/blackpixel.png" width="741" height="1" alt="" border="0"/><br/>
+							<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+								<tbody><tr>
+									<td rowspan="3" width="10" height="10"><img src="#{request.getContextPath()}/resources/images/spacer.png" width="10" height="10" border="0" alt=""/></td>
+									<td width="721"><img src="#{request.getContextPath()}/resources/images/spacer.png" width="721" height="10" border="0" alt=""/></td>
+									<td rowspan="3" width="10"><img src="#{request.getContextPath()}/resources/images/spacer.png" width="10" height="10" border="0" alt=""/></td>
+								</tr>
+								<tr>
+									<td valign="top"></td>
+								</tr></tbody>
+							</table>	
+	
+	 <img src="#{request.getContextPath()}/resources/images/claro.jpg" border="0" alt=""/>
+						
+    
+    
+    <img src="#{request.getContextPath()}/resources/images/spacer.png" width="1" height="10" border="0" alt=""/>
+	</center>
+	          
+      <f:event listener="#{compraBean.iniciarSession}" type="preRenderView" />        
+      <h:form>
+		<center>		
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+				<p:outputLabel for="cbx_cuenta" value="Cuenta:" styleClass="txt_normal_bold" />
+				<p:selectOneMenu id="cbx_cuenta"  style="font-size: 11px;" >
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+					<f:selectItem itemLabel="PS4" itemValue="PS4" />
+					<f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+				</p:selectOneMenu>
+				
+				<p:outputLabel for="txt_factura" value="Factura:" styleClass="txt_normal_bold"  />
+				<p:inputText id="txt_factura"  style="font-size: 11px;" />
+				
+				<p:outputLabel   value="Fecha De Pago Factura:" styleClass="txt_normal_bold" />
+				<p:outputLabel   value="19/02/2015" styleClass="txt_normal"  style="font-size: 11px;" />
+				
+				<p:outputLabel for="txt_monto" value="Monto a pagar:" styleClass="txt_normal_bold" />
+				<p:inputText id="txt_monto"  style="font-size: 11px;" />
+			
+
+			
+			
+				
+			</h:panelGrid>
+			<br/>	
+			<div align="center">
+                    <span class="txt_normal">Verifica tus datos antes de efectuar el pago.</span>
+            </div>
+			<br/>
+            <img src="#{request.getContextPath()}/resources/images/blackpixel.gif" width="741" height="1" alt="" border="0"/>
+			<br/>
+			<span class="required">* campo obligatorio</span>
+			<br/>
+			<br/>
+			<br/>
+			<h:panelGrid columns="2" >
+			<p:commandButton value="TRANSMITIR" id="btn_transmitir" actionListener="#{compraBean.pagoServicio}"    styleClass="form_buttons"   />
+			<p:commandButton value="REGRESAR" id="btn_regresar" actionListener="#{compraBean.loginClose}"   styleClass="form_buttons" />
+
+			</h:panelGrid>
+		</center>
+
+		</h:form>
+		
+		<p:dialog header="Iniciar Session" id="DialogIDLogin" widgetVar="dialogLoginVar" modal="true" height="200px" closable="false">
+    			<h:form id="form2">
+    			<table>
+    				<tr>
+    					<td>
+    						 <img src="#{request.getContextPath()}/resources/images/login_icon.png" width="90px" height="90px" alt="" border="0"/>
+    					</td>
+    					<td>
+    						 
+    						 	 <h:panelGrid columns="2" style="text-align: center;">
+    						 	 	
+    						 	 		<p:outputLabel for="txt_usuario" value="Usuario:" styleClass="txt_normal_bold"  />
+										<p:inputText id="txt_usuario"  style="font-size: 11px;" />
+										<p:outputLabel for="txt_pass" value="Password:" styleClass="txt_normal_bold"  />
+										<p:password id="txt_pass"   />
+    						 	 </h:panelGrid>
+    							
+    					</td>
+    				</tr>
+    			</table>
+				<center>
+				 <h:panelGrid columns="2" style="text-align: center;">
+								<p:commandButton value="INICIAR SESSION" id="btn_iniciar" actionListener="#{compraBean.loginUser}"  styleClass="form_buttons" ajax="false"  />
+								<p:commandButton value="CANCELAR" id="btn_cancelar"   styleClass="form_buttons" ajax="false" />
+				  </h:panelGrid>
+				</center> 
+				 </h:form>
+		</p:dialog>   
+		
+		</ui:define>
+
+        </ui:composition>
+    </body>
+</html>

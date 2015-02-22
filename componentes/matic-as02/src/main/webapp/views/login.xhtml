@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	   
+  
+    <body>
+        <ui:composition template="/WEB-INF/facelets/templates/main_login.xhtml">
+              <ui:define name="pnlContenido">       
+ 			<center>	
+ 				<table width="741" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
+			        <tbody><tr>
+			            <td>
+			                <table width="85%" cellpadding="0" cellspacing="0" border="0" align="center">
+			                    <tbody><tr>
+			                        <td colspan="3"><br/></td>
+			                    </tr>
+			                    <tr>
+			                        <td colspan="2" width="100%" class="header" valign="middle">Cliente Amigo - Bienvenido</td>
+			                        <td class="header" align="right"><img src="#{request.getContextPath()}/resources/images/header_corner.gif"/></td>
+			                    </tr>
+			                    <tr>
+			                        <td width="80%" class="instructions">
+			                            <br/>
+			                            <ul align="left">
+			                                <li>
+			                                    Verifica siempre que la dirección inicie con: <span class="txt_normal_bold">https://www.banrural.com.gt</span>.
+			                                </li>
+			                                <li>
+			                                    Nunca ingreses a través de correo electrónico, mensajería instantánea o enlaces de sitios sospechosos.
+			                                </li>
+			                                <li>
+			                                    Nunca te solicitaremos tu usuario, contraseña u otros datos a través de correos electrónicos.
+			                                </li>
+			                                <li>
+			                                    Nunca te enviaremos un correo electrónico solicitando que actualices tus datos.
+			                                </li>
+			                            </ul>
+			                            <br/>
+			                        </td>
+			                        <td align="right" width="5%">
+			                            <a >
+			                                <img border="0" src="#{request.getContextPath()}/resources/images/lock.gif" alt=""/>
+			                            </a>
+			                        </td>
+			                        <td class="instructions" style="padding-left:5px" width="15%">
+			                            <a >Haga clic para obtener más información sobre seguridad</a>
+			                        </td>
+			                    </tr>
+			                    <tr>
+			                        <td class="instructions" align="left" colspan="2" style="padding-left:95px">Por favor ingrese su Usuario y Clave<br/><br/></td>
+			                        <td>&nbsp;</td>
+			                    </tr>
+								
+								<tr>
+			                        <td style="padding-left:15px;" valign="top" colspan="2">
+			                            
+										<h:form id="form2">
+											
+											
+											<h:panelGrid columns="3" >
+			    						 	 	<h:panelGrid columns="2" >
+			    						 	 		<p:outputLabel  value="Usuario:" style="padding-left:80px" styleClass="txt_normal_bold"  />
+													<p:outputLabel for="txt_usuario" value="*"  styleClass="required"  />
+												</h:panelGrid>
+												<h:panelGrid columns="1" >
+													<div style="padding-left: 6px; vertical-align:top;">
+														<p:inputText id="txt_usuario" styleClass="form_fields login"  style="font-size: 11px;" />
+													</div>	
+												</h:panelGrid>
+												<h:panelGrid></h:panelGrid>	
+												<h:panelGrid columns="2" >
+			    						 	 		<p:outputLabel  value="Clave:" style="padding-left:80px" styleClass="txt_normal_bold"  />
+													<p:outputLabel for="txt_pass" value="*"  styleClass="required"  />
+												</h:panelGrid>	
+												<h:panelGrid columns="1" >
+													<div style="padding-left: 6px; vertical-align:top;">
+														<p:password id="txt_pass"  styleClass="form_fields" />
+													</div>		
+												</h:panelGrid>
+												<h:panelGrid><p:commandButton value="INGRESAR" id="btn_iniciar" actionListener="#{compraBean.loginUser}"  styleClass="form_buttons" ajax="false"  /></h:panelGrid>	
+			    						 	 </h:panelGrid>
+											
+										</h:form>
+			                        </td>
+			                        <td>&nbsp;</td>
+			                    </tr>
+								
+								<tr><td height="10"></td></tr>
+			                    <tr>
+			                        <td colspan="3" align="left" class="txt_nav-a" style="padding-left:95px; font-size:12px;">
+										<a >¿Olvidó Su Clave?</a>&nbsp;&nbsp;<span id="kmessage" class="txt_normal_bold"></span>
+									</td>
+			                    </tr>
+			                    <tr><td height="20"></td></tr>
+			                    <tr>
+			                        <td align="center" class="required" style="padding-left:15px" colspan="100%" width="100%">* Informaci&oacute;n Requerida.</td>
+			                    </tr>
+			                    <tr><td height="26"></td></tr>
+			                    <tr>
+			                        
+			                        <td class="instructions" colspan="100%" width="100%" style="text-align:justify;padding-left:30px;padding-right:30px">No se permite el acceso a la Banca Virtual de Banrural a personas no autorizadas o que no sean propietarias del usuario a utilizar. Si requiere asistencia, comuníquese al teléfono (502) 23398888 o 1720.</td>
+			                    </tr>
+			                    <tr>
+			                        <td colspan="100%" width="100% align=&#39;left&#39;">
+			                            
+			                        </td>
+			                    </tr>
+								
+								
+			                </tbody></table>
+			            </td>
+			        </tr>
+			    </tbody>
+				</table>
+			</center>
+		</ui:define>
+
+        </ui:composition>
+    </body>
+</html>
