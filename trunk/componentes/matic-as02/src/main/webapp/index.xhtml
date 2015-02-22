@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	   
+  
+    <body>
+        <ui:composition template="/WEB-INF/facelets/templates/main_login.xhtml">
+              <ui:define name="pnlContenido">       
+      <h:form>
+		<center>		
+			
+		<h:outputText value="Aplicacion de Pagos Online" />
+        <f:view> 
+        	<h:form id="frmMenu">
+				<h:panelGrid columns="1">
+				<h:outputLink value="views/login.xhtml">Consulta de Pagos Online</h:outputLink>
+				
+				</h:panelGrid>
+			</h:form>
+		</f:view>
+			
+			
+		</center>
+
+		</h:form>
+		</ui:define>
+
+        </ui:composition>
+    </body>
+</html>
