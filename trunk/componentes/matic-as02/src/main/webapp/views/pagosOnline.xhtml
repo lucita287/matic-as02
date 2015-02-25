@@ -55,18 +55,21 @@
 		<center>		
 			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 				<p:outputLabel for="cbx_cuenta" value="Cuenta:" styleClass="txt_normal_bold" />
-				<p:selectOneMenu id="cbx_cuenta"  style="font-size: 11px;" >
+				<p:selectOneMenu id="cbx_cuenta"  style="font-size: 11px;" 
+					value="#{claroCompraBean.txt_no_cuenta}"
+					required="true">
 					<f:selectItems value="#{claroCompraBean.cbxCuentas}" />
 				</p:selectOneMenu>
 				
 				<p:outputLabel for="txt_factura" value="Factura:" styleClass="txt_normal_bold"  />
-				<p:inputText id="txt_factura"  style="font-size: 11px;" />
+				<p:inputText id="txt_factura"  style="font-size: 11px;" 
+					value="#{claroCompraBean.txt_no_factura}" required="true" />
 				
 				<p:outputLabel   value="Fecha De Pago Factura:" styleClass="txt_normal_bold" />
-				<p:outputLabel   value="19/02/2015" styleClass="txt_normal"  style="font-size: 11px;" />
+				<p:outputLabel   value="#{claroCompraBean.fecha_actual}" styleClass="txt_normal"  style="font-size: 11px;" />
 				
 				<p:outputLabel for="txt_monto" value="Monto a pagar:" styleClass="txt_normal_bold" />
-				<p:inputText id="txt_monto"  style="font-size: 11px;" />
+				<p:inputText id="txt_monto" value="#{claroCompraBean.txt_saldo}" style="font-size: 11px;"  required="true"  />
 			
 
 			
@@ -76,6 +79,7 @@
 			<br/>	
 			<div align="center">
                     <span class="txt_normal">Verifica tus datos antes de efectuar el pago.</span>
+                    <p:messages id="messagesError" showDetail="true" autoUpdate="true" closable="true" />
             </div>
 			<br/>
             <img src="#{request.getContextPath()}/resources/images/blackpixel.gif" width="741" height="1" alt="" border="0"/>

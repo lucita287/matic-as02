@@ -33,5 +33,13 @@
 			FROM matic_factura
 			WHERE NO_FACTURA=?
 	 ]]>
+	</sql-query>
+	
+	<sql-query name="findSaldo">
+		<![CDATA[   			
+			SELECT SUM(SALDO)
+			FROM MATIC_TRANSACCION
+			WHERE NO_CUENTA=?
+	 ]]>
 	</sql-query>		
 </hibernate-mapping>
