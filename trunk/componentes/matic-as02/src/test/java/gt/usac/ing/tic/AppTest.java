@@ -51,7 +51,8 @@ public class AppTest
     		GeneralSrv client;
         	client = (GeneralSrv) path.getBean("generalSrvImpl");
         	String resultado = client.loginIniciarSession("lucita287","123456");
-        	System.out.println("Inicia "+resultado);
+        	
+        	
         	
           	
     	}catch (Exception e){

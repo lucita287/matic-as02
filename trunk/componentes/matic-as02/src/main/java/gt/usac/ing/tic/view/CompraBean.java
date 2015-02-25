@@ -14,6 +14,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ComponentSystemEvent;
+import javax.servlet.http.HttpSession;
 
 import org.primefaces.context.RequestContext;
 
@@ -44,14 +45,14 @@ public class CompraBean  implements Serializable{
     public void init() {
 
     }
-	 public void iniciarSession(ComponentSystemEvent event){
-		 
-		  	
-	 }
+	 
 	 
 	 public void loginUser(ActionEvent actionEvent) {
 		 String resultado = generalSrvImpl.loginIniciarSession(txtUsuario,txtPassword);
 		 if(resultado.equalsIgnoreCase("ok")){
+			 HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+			 session.setAttribute("usuarioSession", txtUsuario);
+             session.setAttribute("passwordSession", txtPassword);
 			 Redirect("pagosOnline.xhtml");
 		 }else{
 			 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", resultado));
@@ -60,15 +61,9 @@ public class CompraBean  implements Serializable{
 		 
 	}
 	 
-	 public void loginClose(ActionEvent actionEvent) {
-		 Redirect("../index.xhtml");
-	}
+	
 	 
 	 
-	 public void pagoServicio(ActionEvent actionEvent) {
-		 Redirect("resultado.xhtml");
-	}
-
 	public TicUserDto getLoginUser() {
 		return loginUser;
 	}
