@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -23,6 +24,8 @@ public class CompraBean  implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private TicUserDto loginUser=null;
 	
+	private String txtUsuario;
+	private String txtPassword;
 	/**
      * <p>Servicio gestionado por Spring, contiene la logica del negocio </p>
      */
@@ -47,9 +50,14 @@ public class CompraBean  implements Serializable{
 	 }
 	 
 	 public void loginUser(ActionEvent actionEvent) {
+		 String resultado = generalSrvImpl.loginIniciarSession(txtUsuario,txtPassword);
+		 if(resultado.equalsIgnoreCase("ok")){
+			 Redirect("pagosOnline.xhtml");
+		 }else{
+			 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", resultado));
+		 }
 		 
 		 
-		 Redirect("pagosOnline.xhtml");
 	}
 	 
 	 public void loginClose(ActionEvent actionEvent) {
@@ -78,5 +86,17 @@ public class CompraBean  implements Serializable{
         }
           return "";
     }
+	public String getTxtUsuario() {
+		return txtUsuario;
+	}
+	public void setTxtUsuario(String txtUsuario) {
+		this.txtUsuario = txtUsuario;
+	}
+	public String getTxtPassword() {
+		return txtPassword;
+	}
+	public void setTxtPassword(String txtPassword) {
+		this.txtPassword = txtPassword;
+	}
 	 
 }
