@@ -28,20 +28,18 @@
     ........................................................................ -->
     <tx:annotation-driven transaction-manager="transactionManager" />
     
-    
     <!-- .......................................................................
-    ... Bean para manejar las excepciones a nivel de Hibernate
+    ... Bean que crea la conexion con la base de datos por medio de JDBC
+    ... este bean se utiliza cuando el Data Source se encuentra controlado
+    ... por la misma aplicacion
     ........................................................................ -->
-    <bean id="persistenceExceptionTranslationPostProcessor" class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
-	
-	
-    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="lookupOnStartup" value="true" />
-        <property name="jndiName" value="java:comp/env/jdbc/UsacAs01" />
-        <property name="cache" value="false" />
-        <property name="proxyInterface" value="javax.sql.DataSource" />
-    </bean>
-    
+        
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/maticas01" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+	</bean>
     
     <!-- .......................................................................
     ... Bean de sesion para la base de datos, realiza la integracion con Hibernate
@@ -63,5 +61,15 @@
         </property>
     </bean>
     
-	
+    <!-- .......................................................................
+    ... Bean que controlara las transacciones en Hibernate
+    ........................................................................ -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+    <!-- .......................................................................
+    ... Bean para manejar las excepciones a nivel de Hibernate
+    ........................................................................ -->
+    <bean id="persistenceExceptionTranslationPostProcessor" class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 </beans>

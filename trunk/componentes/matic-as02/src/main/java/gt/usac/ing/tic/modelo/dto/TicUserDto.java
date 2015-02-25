@@ -1,37 +1,48 @@
 package gt.usac.ing.tic.modelo.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TicUserDto  implements java.io.Serializable{
 	public TicUserDto(){
-		
+		listaCuentas=new ArrayList<TicCuentaDto>();
 	}
 	private static final long serialVersionUID = 1L;
-	String User;
-	String Nombre;
-	String Status;
-	String Email;
+	String user;
+	String nombre;
+	String apellido;
+	String email;
+	List<TicCuentaDto> listaCuentas;
+	
+	public List<TicCuentaDto> getListaCuentas() {
+		return listaCuentas;
+	}
+	public void setListaCuentas(List<TicCuentaDto> listaCuentas) {
+		this.listaCuentas = listaCuentas;
+	}
 	public String getUser() {
-		return User;
+		return user;
 	}
 	public void setUser(String user) {
-		User = user;
+		this.user = user;
 	}
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
-	public String getStatus() {
-		return Status;
+	public String getApellido() {
+		return this.apellido;
 	}
-	public void setStatus(String status) {
-		Status = status;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 	public String getEmail() {
-		return Email;
+		return this.email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 }

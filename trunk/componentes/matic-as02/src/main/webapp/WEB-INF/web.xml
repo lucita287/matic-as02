@@ -6,7 +6,19 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
  
-  <display-name>PrimeFaces Web Application</display-name>
+  <display-name>Proyecto 1 de Maestria</display-name>
+  
+   <!-- La informacion de los UIComponent se almacena en el servidor -->
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>server</param-value>
+    </context-param>
+    
+    <!-- Muestra mas informacion sobre los errores ocurridos -->
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
  
  	 <!-- Add Support for Spring -->
   <listener>
@@ -20,6 +32,12 @@
 	</listener-class>
   </listener>
  
+ 	    
+    <session-config>
+		<session-timeout>1200</session-timeout>
+	</session-config>
+	    
+ 	
  
   	<!-- Change to "Production" when you are ready to deploy -->
 	<context-param>
