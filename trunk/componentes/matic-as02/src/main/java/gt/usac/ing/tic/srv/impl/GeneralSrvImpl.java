@@ -111,6 +111,32 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
         return dtoUsuario;
     }
     
+    /*@Override
+    public TicUserDto findFactura(String p_factura)
+    {
+    	List<Object[]> lstFacturas =new ArrayList<Object[]>();
+    	try{
+    		lstUsuario=this.daoGeneralImpl.findByNamedQuery("findusuario",p_usuario);
+    		
+    		if(lstUsuario!=null && lstUsuario.size()>0){
+	    		dtoUsuario= new TicUserDto();
+	    		Object[] oUsuario = lstUsuario.get(0);
+	    		dtoUsuario.setUser(generarString(oUsuario[0]));
+	    		dtoUsuario.setNombre(generarString(oUsuario[1]));
+	    		dtoUsuario.setApellido(generarString(oUsuario[2]));
+	    		dtoUsuario.setEmail(generarString(oUsuario[3]));
+	    		
+	    	}
+    		
+    		
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    	
+        return dtoUsuario;
+    }
+    /*/
+    
     @Override
     public TicUserDto findUsuarioPassword(String p_usuario,String p_password)
     {
