@@ -32,8 +32,8 @@ public class ClaroCompraBean  implements Serializable{
     public void init() {
 		
     }
-	private String txtUsuario=null;
-	private String txtPassword=null;
+	private String txtUsuario="";
+	private String txtPassword="";
 	TicUserDto beanUser=null;
 	private ArrayList<SelectItem> cbxCuentas=new ArrayList<SelectItem>();
 	private String txt_no_cuenta="";
@@ -102,8 +102,8 @@ public class ClaroCompraBean  implements Serializable{
 	
 	 public void iniciarSession(ComponentSystemEvent event){
 		 HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		 txtUsuario = (String) session.getAttribute("usuarioSession");
-		 txtPassword 	= (String) session.getAttribute("passwordSession");
+		 txtUsuario = generarString(session.getAttribute("usuarioSession"));
+		 txtPassword 	=generarString( session.getAttribute("passwordSession"));
 		 
 		 DateFormat formatd = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		 this.fecha_actual = formatd.format(new Date());
@@ -179,4 +179,13 @@ public class ClaroCompraBean  implements Serializable{
 	public void setTxt_saldo(String txt_saldo) {
 		this.txt_saldo = txt_saldo;
 	}
+	 private String generarString(Object value) {
+	        String result = "";
+	        try {
+	            result = value.toString();
+	        } catch (Exception e) {
+
+	        }
+	        return result;
+	    }
 }

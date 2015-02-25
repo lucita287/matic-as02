@@ -29,14 +29,14 @@ public class ResultadoBean implements Serializable{
     public void init() {
 
     }
-	private String txtUsuario=null;
-	private String txtPassword=null;
+	private String txtUsuario="";
+	private String txtPassword="";
 	TicUserDto beanUser=null;
-	private String txt_no_cuenta=null;
-	private String txt_no_factura=null;
-	private String txt_saldo=null;
-	private String txt_nombre=null;
-	private String txt_resultado=null;
+	private String txt_no_cuenta="";
+	private String txt_no_factura="";
+	private String txt_saldo="";
+	private String txt_nombre="";
+	private String txt_resultado="";
 	private Boolean bol_resultado=false;
 	@ManagedProperty("#{generalSrvImpl}")
     protected GeneralSrv generalSrvImpl;    
@@ -51,11 +51,11 @@ public class ResultadoBean implements Serializable{
 	
 	public void iniciarSession(ComponentSystemEvent event){
 		 HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		 txtUsuario = (String) session.getAttribute("usuarioSession");
-		 txtPassword 	= (String) session.getAttribute("passwordSession");
-		 txt_no_cuenta = (String) session.getAttribute("cuentaSession");
-		 txt_no_factura  = (String)( session.getAttribute("passwordSession")).toString();
-		 txt_saldo = (String)( session.getAttribute("saldoSession")).toString();
+		 txtUsuario = generarString(session.getAttribute("usuarioSession"));
+		 txtPassword 	= generarString(session.getAttribute("passwordSession"));
+		 txt_no_cuenta = generarString( session.getAttribute("cuentaSession"));
+		 txt_no_factura  =generarString(session.getAttribute("passwordSession"));
+		 txt_saldo = generarString( session.getAttribute("saldoSession"));
 		 if (txtUsuario != null && !txtUsuario.isEmpty()) {
 			 beanUser=generalSrvImpl.findUsuarioPassword(txtUsuario,txtPassword);
 			 if(beanUser==null){
@@ -69,6 +69,8 @@ public class ResultadoBean implements Serializable{
 			 Redirect("../index.xhtml");
 		 }
 	 }
+	
+	
 	
 	private String Redirect(String path){
         try {
@@ -139,5 +141,13 @@ public class ResultadoBean implements Serializable{
 	public void setBol_resultado(Boolean bol_resultado) {
 		this.bol_resultado = bol_resultado;
 	}
-	
+	 private String generarString(Object value) {
+	        String result = "";
+	        try {
+	            result = value.toString();
+	        } catch (Exception e) {
+
+	        }
+	        return result;
+	    }
 }
