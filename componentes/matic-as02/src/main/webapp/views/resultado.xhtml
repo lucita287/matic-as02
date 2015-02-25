@@ -29,33 +29,38 @@
 					</tr>
 					</tbody>
 				</table>
-				
+				 <f:event listener="#{resultadoBean.iniciarSession}" type="preRenderView" />        
 				 <img src="#{request.getContextPath()}/resources/images/blackpixel.png" width="741" height="1" alt="" border="0"/><br/>
-				 <br/>
-				 <p:outputLabel   value="Tu pago ha sido aplicada exitosamente." styleClass="txt_normal_bold" style="color:#F88017;" />
+				 
+				 
 				 
 				 <br/>
-				 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+				 <p:outputLabel   value="#{resultadoBean.txt_resultado}" styleClass="txt_normal_bold" style="color:#F88017;" />
+				 
+				 <br/>
+				 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" rendered="#{resultadoBean.bol_resultado}">
 				 
 				 	<p:outputLabel   value="Cuenta: " styleClass="txt_normal_bold" />
-					<p:outputLabel   value="43441AA1564" styleClass="txt_normal"  style="font-size: 11px;" />
+					<p:outputLabel   value="#{resultadoBean.txt_no_cuenta}" styleClass="txt_normal"  style="font-size: 11px;" />
 					
 					<p:outputLabel   value="Nombre del Cliente:" styleClass="txt_normal_bold" />
-					<p:outputLabel   value="AURA LUZ CIFUENTES REYES" styleClass="txt_normal"  style="font-size: 11px;" />
+					<p:outputLabel   value="#{resultadoBean.txt_nombre}" styleClass="txt_normal"  style="font-size: 11px;" />
 					
 					
 					<p:outputLabel   value="Valor Q:" styleClass="txt_normal_bold" />
-					<p:outputLabel   value="1,600.00" styleClass="txt_normal"  style="font-size: 11px;" />
+					<p:outputLabel   value="#{resultadoBean.txt_saldo}" styleClass="txt_normal"  style="font-size: 11px;" />
 				
 				 	<p:outputLabel   value="No. Factura" styleClass="txt_normal_bold" />
-					<p:outputLabel   value="1222335555" styleClass="txt_normal"  style="font-size: 11px;" />
+					<p:outputLabel   value="#{resultadoBean.txt_no_factura}" styleClass="txt_normal"  style="font-size: 11px;" />
 				
 					<p:outputLabel   value="Concepto:" styleClass="txt_normal_bold" />
-					<p:outputLabel   value="Prueba" styleClass="txt_normal"  style="font-size: 11px;" />
-				
+					<p:outputLabel   value="PAGO DE SERVICIOS" styleClass="txt_normal"  style="font-size: 11px;" />
+					
 				 
 				 </h:panelGrid>
 				 
+				 <p:commandButton value="REGRESAR" id="btn_regresar" actionListener="#{resultadoBean.loginClose}"   styleClass="form_buttons" />
+					
 				 
 			</center>	 
   				
