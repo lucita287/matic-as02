@@ -50,10 +50,10 @@ public class AppTest
     		path = new ClassPathXmlApplicationContext("classpath*:META-INF/applicationContextTest.xml");
     		GeneralSrv client;
         	client = (GeneralSrv) path.getBean("generalSrvImpl");
-        	String resultado = client.loginIniciarSession("lucita287","123456");
+        	String resultado = client.loginIniciarSession("lucit287","123456");
         	
-        	
-        	
+        	System.out.println("************************************************");
+        	System.out.println(resultado);
           	
     	}catch (Exception e){
     		
