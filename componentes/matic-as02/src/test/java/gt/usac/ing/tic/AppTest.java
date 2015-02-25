@@ -50,13 +50,9 @@ public class AppTest
     		path = new ClassPathXmlApplicationContext("classpath*:META-INF/applicationContextTest.xml");
     		GeneralSrv client;
         	client = (GeneralSrv) path.getBean("generalSrvImpl");
-        	TicUserDto dtoUsuario = client.findUsuario("lucita287", "123456");
-        	System.out.println("Inicia "+dtoUsuario.getUser()+" "+dtoUsuario.getNombre());
-        	Iterator<TicCuentaDto> itlstCuenta =dtoUsuario.getListaCuentas().iterator();
-        	while(itlstCuenta.hasNext()){
-        		TicCuentaDto oCuenta = itlstCuenta.next();
-        		System.out.println("cuenta "+oCuenta.getNo_Cuenta());
-        	}
+        	String resultado = client.loginIniciarSession("lucita287","123456");
+        	System.out.println("Inicia "+resultado);
+        	
           	
     	}catch (Exception e){
     		
