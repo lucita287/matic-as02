@@ -1,5 +1,16 @@
 package gt.usac.ing.tic;
 
+import gt.usac.ing.tic.modelo.dto.TicCuentaDto;
+import gt.usac.ing.tic.modelo.dto.TicUserDto;
+import gt.usac.ing.tic.srv.GeneralSrv;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -10,6 +21,7 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
+    private BeanFactory path;
     /**
      * Create the test case
      *
@@ -33,6 +45,23 @@ public class AppTest
      */
     public void testApp()
     {
+    	List<Object[]> notificacion =new ArrayList<Object[]>();
+    	try{
+    		path = new ClassPathXmlApplicationContext("classpath*:META-INF/applicationContextTest.xml");
+    		GeneralSrv client;
+        	client = (GeneralSrv) path.getBean("generalSrvImpl");
+        	TicUserDto dtoUsuario = client.findUsuario("lucita287", "123456");
+        	System.out.println("Inicia "+dtoUsuario.getUser()+" "+dtoUsuario.getNombre());
+        	Iterator<TicCuentaDto> itlstCuenta =dtoUsuario.getListaCuentas().iterator();
+        	while(itlstCuenta.hasNext()){
+        		TicCuentaDto oCuenta = itlstCuenta.next();
+        		System.out.println("cuenta "+oCuenta.getNo_Cuenta());
+        	}
+          	
+    	}catch (Exception e){
+    		
+    		System.out.println("****************"+e.getMessage());
+    	}
         assertTrue( true );
     }
 }
