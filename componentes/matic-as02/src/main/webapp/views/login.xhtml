@@ -68,7 +68,7 @@
 												</h:panelGrid>
 												<h:panelGrid columns="1" >
 													<div style="padding-left: 6px; vertical-align:top;">
-														<p:inputText id="txt_usuario" styleClass="form_fields login"  style="font-size: 11px;" />
+														<p:inputText id="txt_usuario" styleClass="form_fields login" value="#{compraBean.txtUsuario}" style="font-size: 11px;" />
 													</div>	
 												</h:panelGrid>
 												<h:panelGrid></h:panelGrid>	
@@ -78,14 +78,14 @@
 												</h:panelGrid>	
 												<h:panelGrid columns="1" >
 													<div style="padding-left: 6px; vertical-align:top;">
-														<p:password id="txt_pass"  styleClass="form_fields" />
+														<p:password id="txt_pass" value="#{compraBean.txtPassword}"  styleClass="form_fields" />
 													</div>		
 												</h:panelGrid>
 												<h:panelGrid><p:commandButton value="INGRESAR" id="btn_iniciar" actionListener="#{compraBean.loginUser}"  styleClass="form_buttons" ajax="false"  /></h:panelGrid>	
 			    						 	 
-			    						 	 	 <p:messages id="messagesError" showDetail="true" autoUpdate="true" closable="true" />
+			    						 	 	 
 			    						 	 </h:panelGrid>
-											
+											<p:messages id="messagesError" showDetail="true" autoUpdate="true" closable="true" />
 										</h:form>
 			                        </td>
 			                        <td>&nbsp;</td>
