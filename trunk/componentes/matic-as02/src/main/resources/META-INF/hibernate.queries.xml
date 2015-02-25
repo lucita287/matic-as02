@@ -26,5 +26,12 @@
 			FROM matic_cuenta 
 				WHERE USUARIO = ?
 	 ]]>
+	</sql-query>
+	<sql-query name="findFactura">
+		<![CDATA[   			
+			SELECT NO_FACTURA,VALOR,ESTADO,USUARIO,FECHA,NO_TRANSACCION
+			FROM matic_factura
+			WHERE NO_FACTURA=?
+	 ]]>
 	</sql-query>		
 </hibernate-mapping>
