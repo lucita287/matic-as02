@@ -1,28 +1,33 @@
 package gt.usac.ing.tic.modelo.dto;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 public class TicFacturaDto   implements java.io.Serializable{
 
 	public TicFacturaDto(){
 		
 	}
 	String no_Factura;
-	String valor;
+	BigDecimal valor;
 	String estado;
 	String usuario;
-	String fecha;
+	Date fecha;
 	String no_Transaccion;
+	
+	public BigDecimal getValor() {
+		return valor;
+	}
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
 	public String getNo_Factura() {
 		return no_Factura;
 	}
 	public void setNo_Factura(String no_Factura) {
 		this.no_Factura = no_Factura;
 	}
-	public String getValor() {
-		return valor;
-	}
-	public void setValor(String valor) {
-		this.valor = valor;
-	}
+	 
 	public String getEstado() {
 		return estado;
 	}
@@ -35,10 +40,10 @@ public class TicFacturaDto   implements java.io.Serializable{
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 	public String getNo_Transaccion() {
