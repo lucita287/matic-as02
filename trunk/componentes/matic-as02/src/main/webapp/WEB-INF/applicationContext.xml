@@ -29,12 +29,6 @@
     <tx:annotation-driven transaction-manager="transactionManager" />
     
     
-    <!-- .......................................................................
-    ... Bean para manejar las excepciones a nivel de Hibernate
-    ........................................................................ -->
-    <bean id="persistenceExceptionTranslationPostProcessor" class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
-	
-	
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
         <property name="lookupOnStartup" value="true" />
         <property name="jndiName" value="java:comp/env/jdbc/UsacAs01" />
@@ -64,4 +58,12 @@
     </bean>
     
 	
+    <!-- .......................................................................
+    ... Bean que controlara las transacciones en Hibernate
+    ........................................................................ -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+    
 </beans>
