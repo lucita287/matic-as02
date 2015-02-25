@@ -6,14 +6,21 @@
 			select idarea, area, dsarea from area
 	 ]]>
 	</sql-query>
-<sql-query name="findusuario">
+	<sql-query name="findusuario">
+		<![CDATA[   			
+			SELECT USUARIO, NOMBRE, APELLIDO , EMAIL
+			FROM matic_cliente
+			 where USUARIO = ? 
+	 ]]>
+	</sql-query>
+	<sql-query name="findusuario_pass">
 		<![CDATA[   			
 			SELECT USUARIO, NOMBRE, APELLIDO , EMAIL
 			FROM matic_cliente
 			 where USUARIO = ? and PASSWORD=?
 	 ]]>
 	</sql-query>	
-<sql-query name="findcuenta">
+	<sql-query name="findcuenta">
 		<![CDATA[   			
 			SELECT USUARIO,NO_CUENTA,TIPO_CUENTA,NOMBRE_CUENTA,MONEDA
 			FROM matic_cuenta 

@@ -67,14 +67,57 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
    	 		 
                 return this.daoGeneralImpl.findByNamedQuery("findprueba");
     }
+    @Override
+    public String loginIniciarSession(String p_usuario,String p_password){
+    	String resultado="Ha Ocurrido Error";
+    	TicUserDto oUser=findUsuario(p_usuario);
+    	if(oUser == null){
+    		resultado="Su usuario es Incorrecto";
+    	}else{
+    		oUser=findUsuarioPassword(p_usuario,p_password);
+    		if(oUser == null ){
+    			resultado="Su clave es Incorrecta";
+    		}else{
+    			resultado="ok";
+    		}
+    	}
+    	
+    	return resultado;
+    }
     
     @Override
-    public TicUserDto findUsuario(String p_usuario,String p_password)
+    public TicUserDto findUsuario(String p_usuario)
     {
     	List<Object[]> lstUsuario =new ArrayList<Object[]>();
     	TicUserDto dtoUsuario= null;
     	try{
-    		lstUsuario=this.daoGeneralImpl.findByNamedQuery("findusuario",p_usuario,p_password);
+    		lstUsuario=this.daoGeneralImpl.findByNamedQuery("findusuario",p_usuario);
+    		
+    		if(lstUsuario!=null && lstUsuario.size()>0){
+	    		dtoUsuario= new TicUserDto();
+	    		Object[] oUsuario = lstUsuario.get(0);
+	    		dtoUsuario.setUser(generarString(oUsuario[0]));
+	    		dtoUsuario.setNombre(generarString(oUsuario[1]));
+	    		dtoUsuario.setApellido(generarString(oUsuario[2]));
+	    		dtoUsuario.setEmail(generarString(oUsuario[3]));
+	    		
+	    	}
+    		
+    		
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    	
+        return dtoUsuario;
+    }
+    
+    @Override
+    public TicUserDto findUsuarioPassword(String p_usuario,String p_password)
+    {
+    	List<Object[]> lstUsuario =new ArrayList<Object[]>();
+    	TicUserDto dtoUsuario= null;
+    	try{
+    		lstUsuario=this.daoGeneralImpl.findByNamedQuery("findusuario_pass",p_usuario,p_password);
     		
     		if(lstUsuario!=null && lstUsuario.size()>0){
 	    		dtoUsuario= new TicUserDto();
@@ -109,6 +152,7 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
     	
         return dtoUsuario;
     }
+    /*
     private Date generarFecha(Object fechaobj) {
         Date fechagen = null;
         SimpleDateFormat formatd = null;
@@ -129,7 +173,7 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
             }
         }
         return fechagen;
-    }
+    }*/
 
     private String generarString(Object value) {
         String result = "";
