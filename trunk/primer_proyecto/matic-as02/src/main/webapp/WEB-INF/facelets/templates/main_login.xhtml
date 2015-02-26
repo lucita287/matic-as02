@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="#{request.getContextPath()}/resources/css/FFretail.css" rel="stylesheet" type="text/css" media="screen" />
+                
+        
+    </h:head>
+
+    <h:body>
+        <f:view>
+        <style>    
+			.backlogo {
+				background: url("#{request.getContextPath()}/resources/images/logo_baner_banrural_consumer.png") no-repeat;
+				height: 92px;
+				width: 800px;
+			}
+			.initButton {
+				background: url("#{request.getContextPath()}/resources/images/inicio.gif") no-repeat;
+				padding: 0px;
+				margin-top: 10px;
+				margin-left: 10px;
+				border: none;
+				cursor: pointer;
+				height: 19px;
+				width: 67px;
+			}
+		</style>
+        
+        
+        
+            <div id="wrap">
+                <ui:include src="header_login.xhtml" />
+
+                <!-- contenido -->
+                <h:form id="formPrincipal">
+                    
+                        <div id="content">
+                            <div class="center">
+                                <!-- seccion para ingreso de informacion por el usuario -->
+                                <div class="articles">
+                                    <ui:insert name="pnlContenido">Contenido</ui:insert>
+                                </div>
+                            </div>
+
+
+                            <div style="clear: both;"></div>
+                        </div>
+                    
+
+                </h:form>
+                <ui:include src="footer.xhtml" />
+            </div>
+        </f:view>
+    </h:body>
+</html>
