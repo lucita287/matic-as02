@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <sql-query name="findprueba">
+		<![CDATA[   			
+			select idarea, area, dsarea from area
+	 ]]>
+	</sql-query>
+	<sql-query name="findusuario">
+		<![CDATA[   			
+			SELECT USUARIO, NOMBRE, APELLIDO , EMAIL
+			FROM matic_cliente
+			 where USUARIO = ? 
+	 ]]>
+	</sql-query>
+	<sql-query name="findusuario_pass">
+		<![CDATA[   			
+			SELECT USUARIO, NOMBRE, APELLIDO , EMAIL
+			FROM matic_cliente
+			 where USUARIO = ? and PASSWORD=?
+	 ]]>
+	</sql-query>	
+	<sql-query name="findcuenta">
+		<![CDATA[   			
+			SELECT USUARIO,NO_CUENTA,TIPO_CUENTA,NOMBRE_CUENTA,MONEDA
+			FROM matic_cuenta 
+				WHERE USUARIO = ?
+	 ]]>
+	</sql-query>
+	<sql-query name="findFactura">
+		<![CDATA[   			
+			SELECT NO_FACTURA,VALOR,ESTADO,USUARIO,FECHA,NO_TRANSACCION
+			FROM matic_factura
+			WHERE NO_FACTURA=?
+	 ]]>
+	</sql-query>
+	
+	<sql-query name="findSaldo">
+		<![CDATA[   			
+			SELECT SUM(SALDO)
+			FROM MATIC_TRANSACCION
+			WHERE NO_CUENTA=?
+	 ]]>
+	</sql-query>		
+</hibernate-mapping>
