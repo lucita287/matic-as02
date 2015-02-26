@@ -213,7 +213,11 @@
 	<version>5.1.6</version>
 </dependency>
   	
-	
+	<dependency>
+			<groupId>org.tmatesoft.svnkit</groupId>
+			<artifactId>svnkit</artifactId>
+			<version>1.8.2</version>
+		</dependency>
 	
   </dependencies>
   
