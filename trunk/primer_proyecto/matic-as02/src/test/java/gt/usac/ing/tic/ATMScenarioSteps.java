@@ -52,7 +52,7 @@ public class ATMScenarioSteps {
 
     @Then("the card should be returned")
     public void cardShouldBeReturned() {
-        assertFalse(creditCard.isInUse());
+        assertFalse(creditCard.isInUse())
     }
 
 
