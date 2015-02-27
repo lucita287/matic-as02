@@ -27,7 +27,7 @@ public class ATMScenarioSteps {
 
     @When("the card is $valid")
     public void createCreditCard() {
-        creditCard = new CreditCard(account)
+        creditCard = new CreditCard(account);
     }
 
     @When("the machine contains <atm_available>")
