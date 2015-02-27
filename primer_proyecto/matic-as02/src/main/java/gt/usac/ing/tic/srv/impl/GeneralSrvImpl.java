@@ -95,7 +95,7 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
 	    	TicFacturaDto FAC = findFactura(p_Factura);
 	    	if(FAC !=null){
 		    	if(FAC.getValor().compareTo(p_monto)==0){
-		    		BigDecimal saldo = findSaldoCuenta(p_cuenta);
+		    		BigDecimal saldo = findSaldoCuenta(p_cuenta)
 		    		if(saldo.compareTo(p_monto)<0){
 		    			resultado="Cuenta sin fondos suficientes, SALDO ACTUAL:"+saldo;
 		    		}else{
