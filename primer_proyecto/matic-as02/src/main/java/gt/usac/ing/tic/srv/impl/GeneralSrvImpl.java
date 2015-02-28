@@ -172,7 +172,7 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
     	lstfacturas.add(facttura6);
     	
     	TicFacturaDto facttura7 = new TicFacturaDto();
-    	facttura7.setNo_Factura("FACT0007");
+    	facttura7.setNo_Factura("}");
     	facttura7.setValor(new BigDecimal("80"));
     	facttura7.setEstado("D");
     	lstfacturas.add(facttura7);
@@ -233,6 +233,9 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
     	
     	return resultado;
     }
+    
+    
+    
     
     @Override
     public TicUserDto findUsuarioPassword(String p_usuario,String p_password)
