@@ -148,7 +148,7 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
     	
     	TicFacturaDto facttura3 = new TicFacturaDto();
     	facttura3.setNo_Factura("FACT0003");
-    	facttura3.setValor(new BigDecimal("900"));
+    	facttura3.setValor(new BigDecimal("900"))
     	facttura3.setEstado("D");
     	lstfacturas.add(facttura3);
     	
