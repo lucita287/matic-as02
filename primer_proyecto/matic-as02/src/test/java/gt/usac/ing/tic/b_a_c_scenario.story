@@ -18,7 +18,7 @@ Examples:
 |p_usuario|p_cuenta|p_no_factura|p_monto|
 |lucita287@gmail.com|33230266888|FACT0003|900|
 |lucita287@gmail.com|33130266522|FACT0001|600|
-|yajomac@gmail.com|44330216528|FACT0002|7|
+|yajomac@gmail.com|44330216528|FACT0002|700|
 |yajomac@gmail.com|34130216527|FACT0004|1800|
 |prisila.flores@gmail.com|31330819219|FACT0006|180|
 |prisila.flores@gmail.com|44330815921|FACT0007|80|
