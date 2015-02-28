@@ -390,7 +390,7 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
 	   }catch(Exception e1){
 		   e1.printStackTrace();
 	   }
-	   resultado=new BigDecimal(10);
+	   
 	   return resultado;
    }
     
