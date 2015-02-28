@@ -172,7 +172,7 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
     	lstfacturas.add(facttura6);
     	
     	TicFacturaDto facttura7 = new TicFacturaDto();
-    	facttura7.setNo_Factura("}");
+    	facttura7.setNo_Factura("FACT0007");
     	facttura7.setValor(new BigDecimal("80"));
     	facttura7.setEstado("D");
     	lstfacturas.add(facttura7);
@@ -218,8 +218,12 @@ public class GeneralSrvImpl implements GeneralSrv, Serializable {
 		    		if(saldo.compareTo(p_monto)<0){
 		    			resultado="Cuenta sin fondos suficientes, SALDO ACTUAL:"+saldo;
 		    		}else{
-		    			
-		    			resultado="ok";
+		    			BigDecimal p_monto_100=new BigDecimal(1000);
+		    			if(saldo.compareTo(p_monto_100)<0){
+		    				resultado="El monto es mayor a mil";
+		    			}else{
+		    				resultado="ok";
+		    			}
 		    		}
 		    	}else{
 		    		resultado="El monton no corresponde al valor de la factura, MONTO FACTURA:"+FAC.getValor();
