@@ -12,6 +12,7 @@ public class TicUserDto  implements java.io.Serializable{
 	String nombre;
 	String apellido;
 	String email;
+	String password;
 	List<TicCuentaDto> listaCuentas;
 	
 	public List<TicCuentaDto> getListaCuentas() {
@@ -43,6 +44,12 @@ public class TicUserDto  implements java.io.Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String  getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
