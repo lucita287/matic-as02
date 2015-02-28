@@ -4,6 +4,7 @@ import gt.usac.ing.tic.modelo.dto.TicCuentaDto;
 import gt.usac.ing.tic.modelo.dto.TicFacturaDto;
 import gt.usac.ing.tic.modelo.dto.TicUserDto;
 import gt.usac.ing.tic.srv.GeneralSrv;
+import gt.usac.ing.tic.srv.impl.GeneralSrvImpl;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -47,6 +48,15 @@ public class AppTest
      */
     public void testApp()
     {
+    	
+    	System.out.println("==================================================================================");
+    	System.out.println("===================================PRUEBAS UNITARIAS=======================================");
+    	System.out.println("==================================================================================");
+    	System.out.println("==================================================================================");
+    	System.out.println("==================================================================================");
+    	System.out.println("==================================================================================");
+    	System.out.println("==================================================================================");
+    	
     	List<Object[]> notificacion =new ArrayList<Object[]>();
     	try{
     		path = new ClassPathXmlApplicationContext("classpath*:META-INF/applicationContextTest.xml");
@@ -54,7 +64,7 @@ public class AppTest
         	client = (GeneralSrv) path.getBean("generalSrvImpl");
         	String resultado = client.loginIniciarSession("lucit287","123456");
         	
-        	System.out.println("************************************************");
+        	System.out.println("*******************LOGIN CORRECTO PARA lucita287*****************************");
         	System.out.println(resultado);
           	
     	}catch (Exception e){
@@ -86,7 +96,7 @@ public class AppTest
         	BigDecimal saldo = client.findSaldoCuenta("44130266522");
         	if(saldo!=null){
         		System.out.println("************************************************");
-            	System.out.println("44130266522 "+saldo);
+            	System.out.println("SALDO DE LA CUENTA   44130266522 "+saldo);
         	}
           	
     	}catch (Exception e){
@@ -101,14 +111,17 @@ public class AppTest
     	
     	//VERIFICAR SI EXISTE LA FACTURA
     	try{
-    		path = new ClassPathXmlApplicationContext("classpath*:META-INF/applicationContextTest.xml");
-    		GeneralSrv client;
-        	client = (GeneralSrv) path.getBean("generalSrvImpl");
-        	BigDecimal saldoFactura=new BigDecimal(1500);
-        	String resultado = client.pagoServicio("lucita287","44130215511",saldoFactura,"ABC456");
-        	
-        	System.out.println(resultado);
-        	
+    		GeneralSrv client=new GeneralSrvImpl();
+        	BigDecimal saldoFactura=new BigDecimal(900);
+        	String resultado = client.pagoServicio("lucita287@gmail.com","33230266888",saldoFactura,"FACT0003");
+        	if(resultado.equalsIgnoreCase("ok")){
+        		System.out.println("+++++++++++++++ LA FACTURA EXISTE "+resultado);
+        		assertTrue( true );
+                
+        	}else{
+        		assertTrue( false );
+                
+        	}
         	
         	
           	
@@ -118,11 +131,14 @@ public class AppTest
     	}
     	
     	
+    	System.out.println("==================================================================================");
+    	System.out.println("==================================================================================");
+    	System.out.println("==================================================================================");
+    	System.out.println("==================================================================================");
+    	System.out.println("==================================================================================");
     	
     	
     	
-    	
-        assertTrue( true );
         
         
         
