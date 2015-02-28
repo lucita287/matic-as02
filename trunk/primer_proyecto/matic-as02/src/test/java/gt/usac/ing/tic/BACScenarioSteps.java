@@ -110,6 +110,21 @@ public class BACScenarioSteps {
     	   }
     }
     
+    @Then("el monto es menor a mil")
+    public void checkSaldomil() {
+    	BigDecimal SaldoMil =new BigDecimal(1000);
+    	   if(saldo_factura!=null  ){
+    		   if(saldo_factura.compareTo(SaldoMil)<0){
+    			   assertTrue(true);
+    		   }else{
+    			   assertFalse(true);
+    		   }
+    		   
+    	   }else{
+    		   assertFalse(true);
+    	   }
+    }
+    
     @Then("la cuenta no tiene fondos para realizar el pago")
     public void checkSaldoCuenta() {
     	   if(saldo_cuenta!=null && saldo_factura!=null){

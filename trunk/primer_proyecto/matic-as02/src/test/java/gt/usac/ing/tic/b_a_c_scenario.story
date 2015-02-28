@@ -11,6 +11,7 @@ When ingreso el monto a pagar <p_monto>
 When presiono el boton de Transmitir
 Then la factura existe
 Then el monto no corresponde a la factura
+Then el monto es menor a mil
 Then la cuenta no tiene fondos para realizar el pago
 Then se despliega el comprobante de pago
 
@@ -21,7 +22,7 @@ Examples:
 |yajomac@gmail.com|44330216528|FACT0002|700|
 |yajomac@gmail.com|34130216527|FACT0004|1800|
 |prisila.flores@gmail.com|31330819219|FACT0006|180|
-|prisila.flores@gmail.com|44330815921|FACT0007|1800|
+|prisila.flores@gmail.com|44330815921|FACT0007|80|
 
 
 
